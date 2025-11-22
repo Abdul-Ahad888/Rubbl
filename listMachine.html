@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rubbl</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand p-3 sticky-top" style="background-color: #232525;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html"><img src="./assets/rubbl-navbar.png" alt=""></a>
+
+          <div class="icon-cus-sty-search-box position-relative d-none d-lg-block">
+              <i class="bi bi-search fs-6"></i>
+            </div>
+            <input class="px-4 nav-search-boxes me-4 d-none d-lg-block" type="text" placeholder="Search dozer, excavator, etc">
+            <input class="nav-search-boxes d-none d-lg-block" type="text" placeholder="Location Enter City Or Zip">
+
+      <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <div class="pe-4 d-none d-md-block">
+            <a href="./listMachine.html">
+              <button class="btn btn-outline-light fw-semibold rounded-0 px-3 py-2">List a
+                machine</button>
+            </a>
+          </div>
+
+          <div class="pe-4">
+            <a class="nav-link p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,0">
+              <i class="bi bi-person-circle text-white fs-4">
+                <div style="font-size: 12px;" class="d-inline-block ms-1">&#x25BC;</div>
+              </i>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Login</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Sign up</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./items.html">Items</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">How Rubbl Works</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Renter FAQ's</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Rental Terms</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Become an Owner</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./listMachine.html">List a Machine</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Earnings Calculator</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Insurance & Protection</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Owner FAQ's</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">Careers</a></li>
+              <li><a class="dropdown-item text-black fw-bold mt-2" href="./index.html">(866) 455-8531</a></li>
+            </ul>
+          </div>
+          
+          <div class="ps-4 border-start border-1 border-secondary">
+            <a class="text-decoration-none" href="#" id="cart-icon">
+                  <div class="cart-icon">
+                    <i class="bi bi-cart fs-4 text-white"></i>
+                    <div class="total-container">
+                      <span class="total">0</span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Cart -->
+
+  <div id="cart">
+    <div class="container">
+      <span id="close-cart" class="bi bi-x text-dark fs-3"></span>
+      <h4>Cart</h4>
+      <hr class="px-4">
+      <button class="btn btn-dark w-100 py-4 fw-bold">Continue shopping</button>
+      <hr class="px-4">
+      <div class="text-center px-4 py-5">
+        <p class="text-secondary fw-semibold">There’s nothing in your cart. Add machines to your cart to start the
+          checkout process or to share a quote.</p>
+      </div>
+      <hr class="px-4">
+    </div>
+  </div>
+
+  <!-- Chat -->
+
+  <button id="chat-button" onclick="toggleChat()">
+    <i id="chat-icon" class="bi bi-chat-text-fill fs-2"></i>
+  </button>
+  <div id="chat-interface" class="fade-in">
+    <div class="chat-header py-3 px-4">
+      <h5 class="text-white">Help</h5>
+    </div>
+    <div class="container">
+      <div class="chat-box-sty-help">
+        <h6 class="fw-normal">Find answers quickly</h6>
+        <i class="d-none d-lg-block bi bi-search fs-5 mt-2 pt-1"></i>
+        <input class="px-3 px-lg-5 py-2 mt-2" type="text" name="" id="" placeholder="Search Articles">
+      </div>
+      <div class="chat-box-sty chat-cus-box-hover-point-sty">
+        <button class="cursor-pointer float-end border-0 bg-transparent"><i
+            class="text-black fs-4 bi bi-pencil-square"></i></button>
+        <h6 class="fw-normal mt-2">Your Chats</h6>
+        <hr>
+        <div class="position-relative ">
+          <img style="width: 50px;" src="./assets/02fb693e-4916-4b95-b3dd-fe7353092a22.png" alt="">
+          <h6 class="d-inline-block ms-3" style="font-size: 12px; position: absolute; top: 0%;">Rubbl</h6>
+          <h6 class="float-end" style="font-size: 12px;">a sec ago.</h6>
+          <h6 class="d-inline-block ps-3 position-relative mt-4 mt-sm-0" style="font-size: 12px; top: 10px;">Questions
+            Chat Or Call Us <br class="d-block d-sm-none"> At (866).</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <section class="main-bg-image-banner">
+    <div class="container">
+      <div class="row justify-content-center align-content-center">
+        <div class="col-12 col-lg-8 text-start">
+          <h1 class="display-3 text-white fw-bold">Increase your utilization. Earn revenue doing it.</h1>
+          <p class="text-white fw-semibold">Get your idle machines rented by contractors who need them. Always risk-free
+            to you, we only get paid when your gear is rented.</p>
+          <div class="text-start">
+            <button class="btn py-4 fw-semibold fs-5 text-white" style="background-color: #f53331; width: 260px;">Get
+              Started</button>
+            <div class="">
+              <a href="https://www.youtube.com/watch?v=C4azgAkZuUc" class="text-decoration-none text-white fw-semibold"><i class="me-3 bi bi-play-circle"
+                  style="color: #f53331; font-size: 70px; position: relative; top: 10px;"></i>WATCH VIDEO</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-1 mt-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-lg-7">
+          <h1>Peace of mind. Guaranteed.</h1>
+          <p class="text-secondary">Rent your idle machines with confidence knowing that your equipment will always be
+            returned in the same condition it left.</p>
+          <a href="#" class="text-decoration-none fw-semibold" style="color: #009688;">Get Started</a>
+
+          <div class="row">
+            <div class="col-12 col-lg-4">
+              <i class="d-block bi bi-person-check" style="font-size: 60px;"></i>
+              <h4>Vetted renter community</h4>
+              <h6 class="my-3">We vet every renter by performing an extensive review of their company’s credit history
+                to ensure that only quality, trusted renters are using your gear.</h6>
+            </div>
+            <div class="col-12 col-lg-4">
+              <i class="d-block bi bi-shield-check" style="font-size: 60px;"></i>
+              <h4>Extensive protection</h4>
+              <h6 class="my-3">Every machine goes through multiple 50-point inspections during the rental process and is
+                also safeguarded with Rubbl's extensive damage coverage.</h6>
+            </div>
+            <div class="col-12 col-lg-4">
+              <i class="d-block bi bi-gear" style="font-size: 60px;"></i>
+              <h4>Maintenance</h4>
+              <h6 class="my-3">Rubbl monitors your equipment while on rent to ensure it is properly maintained every 250
+                hours to protect your assets while maximizing utilization and revenue.</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <img class="img-fluid" src="./assets/hand-my-machines-phone.png" alt="">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-2-banner-list-machine">
+    <div class="container">
+      <div class="row justify-content-center align-content-center">
+        <div class="text-borders-lt-rt-sty">
+          <h1 class="fw-bold text-white">We handle it all</h1>
+          <div class="text-center py-2 py-lg-4">
+            <h5 class="text-white">Put your gear on Rubbl. You get paid. We handle everything else.</h5>
+          </div>
+          </h6>
+        </div>
+
+        <div class="col-12 col-lg-4">
+          <div class="text-white text-start mt-0 mt-lg-5 p-3">
+            <h5>Premium Onboarding</h5>
+            <h6 class="my-0 my-lg-4">Our team of onboarding specialists will get all of your machines listed on Rubbl so you start generating revenue quickly.</h6>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="text-white text-start mt-0 mt-lg-5 p-3">
+            <h5>Managed Logistics</h5>
+            <h6 class="my-0 my-lg-4">Rubbl coordinates and manages all of your machines’ transportation logistics using trusted and properly insured carriers.</h6>
+          </div>
+        </div>
+        <div class="col-12 col-lg-4">
+          <div class="text-white text-start mt-0 mt-lg-5 p-3">
+            <h5>Damage Reconciliation</h5>
+            <h6 class="my-0 my-lg-4">We manage the entire damage reporting and claims process, ensuring that your machines are professionally repaired.</h6>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-3 my-5">
+    <div class="container">
+      <div class="row justify-content-center align-content-center align-items-center">
+
+        <div class="col-12 col-lg-6">
+          <img class="img-fluid" src="./assets/owner-details-pages.png" alt="">
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <h1 class="my-5">Always in control</h1>
+          <p class="text-secondary">Your fleet dashboard gives you visibility into every aspect of your rented gear, while putting all of the control in your hands.</p>
+          <a href="#" class="text-decoration-none fw-semibold" style="color: #009688;">Get Started</a>
+
+          <div class="row">
+            <div class="col-12 col-lg-4">
+              <i class="d-block bi bi-toggle-on" style="font-size: 60px;"></i>
+              <h4>Manage listings</h4>
+              <h6 class="my-3">Easily manage the availability of your gear by making machines available or unavailable in a single click.</h6>
+            </div>
+            <div class="col-12 col-lg-4">
+              <i class="d-block bi bi-tag" style="font-size: 60px;"></i>
+              <h4>Set your rates
+              </h4>
+              <h6 class="my-3">Maintain control over what you earn by setting your own rental rates using our market data as a guide.</h6>
+            </div>
+            <div class="col-12 col-lg-4">
+              <i class="d-block bi bi-bullseye" style="font-size: 60px;"></i>
+              <h4>Track your gear</h4>
+              <h6 class="my-3">Know exactly where your machines are at all times with our transparent order and machine tracking.</h6>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec-4 mt-4">
+    <div class="container">
+      <div class="row justify-content-center align-content-center align-items-center">
+
+        <div class="col-12 col-lg-6">
+            <h1>Get paid on time. <br>
+              Every time.</h1>
+              <p class="text-secondary">We guarantee that you’ll get paid for every rental. When your machines get rented, money will be deposited into your account every month, plain and simple.</p>
+              <a href="#" class="text-decoration-none fw-semibold" style="color: #009688;">Get Started</a>
+            </div>
+
+          <div class="col-12 col-lg-6">
+            <img class="img-fluid" src="./assets/paid-email.png" alt="">
+          </div>
+
+    </div>
+    </div>
+  </section>
+
+  <section class="driven-bg-banner">
+    <div class="container">
+      <div class="row justify-content-center align-content-center">
+        <div class="col-12 col-lg-8 text-center">
+          <i class="d-block bi bi-circle-square text-white display-4 py-4"></i>
+          <h1 class="text-white fw-bold">Success driven support</h1>
+          <p class="text-white fw-semibold">You’ll have a dedicated account manager with industry experience working hard for you throughout the entire process. Your success is our success.</p>
+          <div class="text-center py-4">
+            <button class="btn py-4 fw-semibold fs-5 text-white" style="background-color: #f53331; width: 260px;">Get
+              Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer style="background-color: #343434;" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-12 col-sm-4 col-lg-2 mt-4 mt-md-0">
+          <div class="text-white">
+            <h5 class="fw-bold">Renters</h5>
+            <ul class="list-unstyled pt-2">
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Rent
+                  machines</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Getting
+                  started guide</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">FAQs</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Rental
+                  Terms</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4 col-lg-2 mt-4 mt-md-0">
+          <div class="text-white">
+            <h5 class="fw-bold">Owners</h5>
+            <ul class="list-unstyled pt-2">
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Become an Owner</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">List a Machine</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Earnings calculator</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Getting started guide</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Insurance &amp; protection</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">FAQs</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4 col-lg-2 mt-4 mt-md-0">
+          <div style="color: #96a2a7;">
+            <h5 class="fw-bold">
+              <i class="mx-1 fa fa-facebook"></i>
+              <i class="mx-1 fa fa-instagram"></i>
+              <i class="mx-1 fa fa-linkedin"></i>
+              <i class="mx-1 bi bi-youtube"></i>
+            </h5>
+            <ul class="list-unstyled pt-2">
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">(866) 455-8531</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Terms of Service</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Privacy Policy</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Careers</a></li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row justify-content-center mt-4">
+
+        <div class="col-12 col-sm-4 col-lg-2 mt-4 mt-md-0">
+          <div class="text-white">
+            <h5 class="fw-bold">Categories</h5>
+            <ul class="list-unstyled pt-2">
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Excavators</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Dozers</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Loaders</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Skid Steers</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Water Trucks</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Dump Trucks</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Compactors</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Motor Graders</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Crawler Carriers</a></li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4 col-lg-2 mt-4 mt-md-0">
+          <div class="text-white">
+            <h5 class="fw-bold">Makes</h5>
+            <ul class="list-unstyled pt-2">
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Caterpillar</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">John Deere</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Bobcat</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Komatsu</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Kubota</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Peterbilt</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Volvo</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">JCB</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="">Hitachi</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-4 col-lg-2 mt-4 mt-md-0">
+          <div class="text-white">
+            <h5 class="fw-bold">Cities</h5>
+            <ul class="list-unstyled pt-2">
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Houston, TX</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Denver, CO</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Dallas, TX</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Albuquerque, NM</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Los Angeles, CA</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Salt Lake City, UT</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Dickinson, ND</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Spokane, WA</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Lubbock, TX</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Bassfield, MS</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Billings, MT</a></li>
+              <li class="pb-1"><a class="text-decoration-none text-white fw-semibold" style="font-size: 14px;"
+                  href="#">Atlanta, GA</a></li>
+
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <hr class="text-secondary">
+      <div class="text-center">
+        <h6 style="color: #96a2a7;"><i class="icon-rubbl"></i> © Rubbl. inc</h6>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js
+    "></script>
+  <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
